@@ -25,7 +25,7 @@ public class MusicDownloader {
         try(BufferedReader reader = new BufferedReader(new FileReader(MUSIC_LINK_FILE)))
         {
             Optional<String> link = Optional.ofNullable(reader.readLine());
-            //Если не было get запроса на сайте, и файл пустой, то назначается начальная страница сайта.
+            //Если файл пустой, то назначается начальная страница сайта.
             URL url = new URL(link.orElse("https://stand.hitplayer.ru/"));
             BufferedReader pageReader = new BufferedReader(new InputStreamReader(url.openStream()));
             pageReader.lines().forEach(musicElement ->{
